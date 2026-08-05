@@ -2,7 +2,19 @@ const content = document.querySelector("#page-content");
 const nav = document.querySelector(".site-nav");
 const menu = document.querySelector(".menu-toggle");
 const themeToggle = document.querySelector(".theme-toggle");
-const routes = ["home", "projects", "about", "contacts"];
+const routes = ["_home", "_projects", "_about", "_contacts"];
+const routeToPage = {
+  _home: "home",
+  _projects: "projects",
+  _about: "about",
+  _contacts: "contacts",
+};
+const legacyRouteMap = {
+  home: "_home",
+  projects: "_projects",
+  about: "_about",
+  contacts: "_contacts",
+};
 
 function ensureScrollTopButton() {
   const existingButton = document.querySelector(".scroll-top");
@@ -20,10 +32,12 @@ function ensureScrollTopButton() {
 const scrollTopButton = ensureScrollTopButton();
 
 async function loadPage() {
-  const page = routes.includes(location.hash.slice(1))
-    ? location.hash.slice(1)
-    : "home";
-  if (!location.hash) history.replaceState(null, "", "#home");
+  const currentHash = location.hash.slice(1);
+  const route = routes.includes(currentHash)
+    ? currentHash
+    : legacyRouteMap[currentHash] ?? "_home";
+  const page = routeToPage[route] ?? "home";
+  if (location.hash !== `#${route}`) history.replaceState(null, "", `#${route}`);
   content.classList.add("is-loading");
   try {
     const response = await fetch(`pages/${page}.html`, { cache: "no-store" });
@@ -33,13 +47,13 @@ async function loadPage() {
     document
       .querySelectorAll("[data-page]")
       .forEach((link) =>
-        link.classList.toggle("active", link.dataset.page === page),
+        link.classList.toggle("active", link.dataset.page === route),
       );
     window.scrollTo({ top: 0, behavior: "smooth" });
     initializePage(page);
   } catch {
     content.innerHTML =
-      '<section class="error-state"><h1>Something went wrong.</h1><a class="button button-primary" href="#home">Back home</a></section>';
+      '<section class="error-state"><h1>Something went wrong.</h1><a class="button button-primary" href="#_home">Back home</a></section>';
   } finally {
     content.classList.remove("is-loading");
   }
