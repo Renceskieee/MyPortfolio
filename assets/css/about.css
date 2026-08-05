@@ -1,0 +1,157 @@
+.about-page {
+  max-width: 1320px;
+  margin: auto;
+}
+.about-intro {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 35px;
+}
+.about-intro .eyebrow {
+  grid-column: 1/-1;
+  margin-bottom: 0;
+}
+.about-intro > p:last-child {
+  align-self: end;
+}
+.about-facts {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  margin: 100px 0;
+}
+.about-facts div {
+  padding: 28px 25px;
+  border-right: 1px solid var(--line);
+}
+.about-facts div:first-child {
+  padding-left: 0;
+}
+.about-facts div:last-child {
+  border: 0;
+}
+.about-facts b {
+  font-size: 27px;
+  letter-spacing: -0.05em;
+  display: block;
+}
+.about-facts span {
+  font-size: 11px;
+  color: var(--muted);
+}
+.about-section {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 80px;
+  margin: 0 0 110px;
+}
+.timeline article {
+  display: grid;
+  grid-template-columns: 135px 1fr;
+  border-top: 1px solid var(--line);
+  padding: 0 0 32px;
+  margin-bottom: 32px;
+}
+.timeline article span {
+  font-size: 11px;
+  color: var(--orange);
+  padding-top: 21px;
+}
+.timeline h3,
+.expertise-grid h3 {
+  font-size: 17px;
+  letter-spacing: -0.03em;
+  margin: 19px 0 5px;
+}
+.timeline p,
+.expertise-grid p {
+  color: var(--muted);
+  font-size: 12px;
+  margin: 0;
+}
+.timeline small {
+  display: inline-block;
+  margin-top: 13px;
+  font-size: 10px;
+  background: var(--lime);
+  color: #172127;
+  padding: 4px 9px;
+  border-radius: 20px;
+}
+.timeline article.milestone h3 {
+  margin-top: 17px;
+}
+.timeline article.milestone p {
+  max-width: 430px;
+}
+.expertise-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 35px;
+}
+.expertise-grid article {
+  border-top: 1px solid var(--line);
+  padding: 4px 0 28px;
+  min-height: 125px;
+}
+.values {
+  border-radius: var(--radius);
+  padding: 55px;
+  background: #dfe9e2;
+  grid-template-columns: 0.7fr 1.3fr;
+  gap: 30px;
+}
+.values .eyebrow {
+  color: #58715f;
+}
+.values h2 {
+  font-size: clamp(27px, 3.5vw, 45px);
+  letter-spacing: -0.05em;
+  line-height: 1.1;
+  margin: 0 0 18px;
+}
+.values div > p {
+  max-width: 480px;
+  color: #506660;
+  font-size: 13px;
+  margin: 0;
+}
+@media (max-width: 700px) {
+  .about-intro,
+  .about-section {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  .about-facts {
+    margin: 65px 0;
+    grid-template-columns: 1fr;
+  }
+  .about-facts div,
+  .about-facts div:first-child {
+    padding: 18px 0;
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .about-facts div:last-child {
+    border-bottom: 0;
+  }
+  .about-section {
+    margin-bottom: 70px;
+  }
+  .expertise-grid {
+    grid-template-columns: 1fr;
+  }
+  .timeline article {
+    grid-template-columns: 1fr;
+  }
+  .timeline article span {
+    padding-top: 17px;
+  }
+  .timeline article.milestone p {
+    max-width: none;
+  }
+  .values {
+    padding: 32px 25px;
+  }
+}
