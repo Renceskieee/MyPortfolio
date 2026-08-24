@@ -42,6 +42,10 @@ async function loadPage() {
   try {
     const response = await fetch(`pages/${page}.html`, { cache: "no-store" });
     if (!response.ok) throw new Error("Page not found");
+    const existingViewer = document.querySelector(".image-viewer");
+    existingViewer?.cleanup?.();
+    existingViewer?.remove();
+    document.body.classList.remove("viewer-open");
     content.innerHTML = await response.text();
     document.title = "Renceskieee";
     document
