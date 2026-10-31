@@ -484,6 +484,13 @@ html[data-theme="dark"] .project-sk .project-visual {
   }
   .footer-brand {
     grid-column: 1 / -1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .footer-brand .brand {
+    order: 0;
   }
   .page-section {
     min-height: calc(100vh - 190px);
