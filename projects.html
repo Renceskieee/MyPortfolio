@@ -3,6 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      // Apply the saved theme before the page paints, so dark mode doesn't flash light.
+      (function () {
+        var theme;
+        try {
+          theme = localStorage.getItem("rencyq-theme");
+        } catch (e) {}
+        document.documentElement.dataset.theme =
+          theme || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+      })();
+    </script>
     <title>Projects | Laurence Paul Quiniano – Flutter, React &amp; Node.js Apps</title>
     <meta name="description" content="Selected projects by Laurence Paul Quiniano: AquaLex marine almanac app, PCIC Financial Management System, EARIST HRIS and SK Barangay Information System." />
     <meta name="author" content="Laurence Paul G. Quiniano" />
@@ -93,8 +104,8 @@
               "item": {
                 "@type": "SoftwareApplication",
                 "name": "SK Barangay Information System",
-                "description": "Platform that digitizes barangay records and administrative workflows.",
-                "applicationCategory": "WebApplication",
+                "description": "Desktop application that digitizes barangay records and administrative workflows.",
+                "applicationCategory": "DesktopApplication",
                 "creator": {
                   "@id": "https://renceskieee.dev/#person"
                 }
@@ -195,7 +206,8 @@
                   for students, fishers, and marine enthusiasts.
                 </p>
                 <div class="tags"><span>Flutter</span><span>CSV</span></div>
-                <a href="contact.html" class="project-link">View Details <b>↗</b></a>
+                <!-- Hidden until each project has a details page:
+                <a href="contact.html" class="project-link">View Details <b>↗</b></a> -->
               </div>
             </article>
             <article class="project-card project-pcic reveal">
@@ -227,7 +239,8 @@
                 <div class="tags">
                   <span>Flutter</span><span>NodeJS</span><span>MySQL</span>
                 </div>
-                <a href="contact.html" class="project-link">View Details <b>↗</b></a>
+                <!-- Hidden until each project has a details page:
+                <a href="contact.html" class="project-link">View Details <b>↗</b></a> -->
               </div>
             </article>
             <article class="project-card project-hris reveal">
@@ -259,7 +272,8 @@
                 <div class="tags">
                   <span>React</span><span>NodeJS</span><span>MySQL</span>
                 </div>
-                <a href="contact.html" class="project-link">View Details <b>↗</b></a>
+                <!-- Hidden until each project has a details page:
+                <a href="contact.html" class="project-link">View Details <b>↗</b></a> -->
               </div>
             </article>
             <article class="project-card project-sk reveal">
@@ -292,23 +306,48 @@
                 <div class="tags">
                   <span>React</span><span>NodeJS</span><span>MySQL</span>
                 </div>
-                <a href="contact.html" class="project-link">View Details <b>↗</b></a>
+                <!-- Hidden until each project has a details page:
+                <a href="contact.html" class="project-link">View Details <b>↗</b></a> -->
               </div>
             </article>
           </div>
         </section>
       </main>
       <footer class="site-footer">
-        <a class="brand" href="./" aria-label="Renceskieee home"
-          ><img
-            src="assets/images/icons/logo-96.webp"
-            alt="Renceskieee logo"
-            width="34"
-            height="34"
-          /><strong>Renceskieee</strong></a
-        >
-        <p>Building thoughtful digital experiences.</p>
-        <p>© <span id="year">2026</span> Laurence Paul G. Quiniano</p>
+        <div class="footer-brand">
+          <a class="brand" href="./" aria-label="Renceskieee home"
+            ><img
+              src="assets/images/icons/logo-96.webp"
+              alt="Renceskieee logo"
+              width="34"
+              height="34"
+            /><strong>Renceskieee</strong></a
+          >
+          <p>Building thoughtful digital experiences.</p>
+          <p class="footer-copy">© Laurence Paul G. Quiniano, <span id="year">2026</span></p>
+        </div>
+        <nav class="footer-links" aria-label="Footer navigation">
+          <p class="footer-title">Pages</p>
+          <a href="./">Home</a>
+          <a href="projects.html">Projects</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+        <div class="footer-links">
+          <p class="footer-title">Connect</p>
+          <a href="mailto:quiniano.infotech@gmail.com"
+            ><img class="contact-icon" src="assets/icons/send.svg" alt="" width="16" height="16" />Email</a
+          >
+          <a href="https://web.facebook.com/xRency" target="_blank" rel="noopener"
+            ><img class="contact-icon" src="assets/icons/facebook.svg" alt="" width="16" height="16" />Facebook</a
+          >
+          <a href="https://www.instagram.com/renceskieee27/" target="_blank" rel="noopener"
+            ><img class="contact-icon" src="assets/icons/instagram.svg" alt="" width="16" height="16" />Instagram</a
+          >
+          <a href="https://www.youtube.com/@RencyQ" target="_blank" rel="noopener"
+            ><img class="contact-icon" src="assets/icons/youtube.svg" alt="" width="16" height="16" />YouTube</a
+          >
+        </div>
       </footer>
     </div>
     <script src="assets/js/main.js"></script>

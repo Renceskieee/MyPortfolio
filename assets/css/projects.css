@@ -97,6 +97,9 @@
   gap: 7px;
   margin: 22px 0;
 }
+.tags:last-child {
+  margin-bottom: 0;
+}
 .tags span {
   font-size: 10px;
   background: #f0f3ef;

@@ -3,6 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      // Apply the saved theme before the page paints, so dark mode doesn't flash light.
+      (function () {
+        var theme;
+        try {
+          theme = localStorage.getItem("rencyq-theme");
+        } catch (e) {}
+        document.documentElement.dataset.theme =
+          theme || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+      })();
+    </script>
     <title>About Laurence Paul Quiniano | BSIT Magna Cum Laude, EARIST</title>
     <meta name="description" content="Learn about Laurence Paul G. Quiniano: BSIT Magna Cum Laude graduate of EARIST, programmer at the Philippine Crop Insurance Corporation, ITIL 4 and A+ trained." />
     <meta name="author" content="Laurence Paul G. Quiniano" />
@@ -179,14 +190,6 @@
                 </div>
               </article>
 
-              <article>
-                <span>2026</span>
-                <div>
-                  <h3>Civil Service Eligibility (Honor Graduate, PD 907)</h3>
-                  <p>Civil Service Commission</p>
-                </div>
-              </article>
-        
               <article class="milestone">
                 <span>2022 — 2026</span>
                 <div>
@@ -195,7 +198,7 @@
                   <small>Graduated Magna Cum Laude</small>
                 </div>
               </article>
-        
+
               <article>
                 <span>2026</span>
                 <div>
@@ -203,24 +206,25 @@
                   <p>Philippine Crop Insurance Corporation</p>
                 </div>
               </article>
-        
+            </div>
+          </section>
+          <section class="about-section credentials reveal">
+            <div class="section-intro">
+              <p class="eyebrow">Credentials &amp; training</p>
+              <h2>Certified,<br />eligible, ready.</h2>
+            </div>
+            <div class="expertise-grid">
               <article>
-                <span>2026</span>
-                <div>
-                  <h3>
-                    Skills Progression Partnership Program (SkiPP) and Service Desk
-                    Foundation (ITIL® 4)
-                  </h3>
-                  <p>Infosys</p>
-                </div>
+                <h3>Civil Service Eligibility</h3>
+                <p>Honor Graduate (PD 907) · Civil Service Commission · 2026</p>
               </article>
-        
               <article>
-                <span>2026</span>
-                <div>
-                  <h3>A+ Training</h3>
-                  <p>Asia Pacific College</p>
-                </div>
+                <h3>Service Desk Foundation (ITIL® 4)</h3>
+                <p>Infosys Skills Progression Partnership Program · 2026</p>
+              </article>
+              <article>
+                <h3>CompTIA A+ Training</h3>
+                <p>Asia Pacific College · 2026</p>
               </article>
             </div>
           </section>
@@ -231,14 +235,12 @@
             </div>
             <div class="expertise-grid">
               <article>
-                <h3>Programming</h3>
-                <p>React, Flutter, JavaScript, HTML & CSS</p>
+                <h3>Languages</h3>
+                <p>JavaScript, Dart, SQL, HTML &amp; CSS.</p>
               </article>
               <article>
                 <h3>Frameworks</h3>
-                <p>
-                   Node.js, Flutter, React, and Firebase.
-                </p>
+                <p>React, Flutter, and Node.js.</p>
               </article>
               <article>
                 <h3>Databases</h3>
@@ -264,16 +266,40 @@
         </section>
       </main>
       <footer class="site-footer">
-        <a class="brand" href="./" aria-label="Renceskieee home"
-          ><img
-            src="assets/images/icons/logo-96.webp"
-            alt="Renceskieee logo"
-            width="34"
-            height="34"
-          /><strong>Renceskieee</strong></a
-        >
-        <p>Building thoughtful digital experiences.</p>
-        <p>© <span id="year">2026</span> Laurence Paul G. Quiniano</p>
+        <div class="footer-brand">
+          <a class="brand" href="./" aria-label="Renceskieee home"
+            ><img
+              src="assets/images/icons/logo-96.webp"
+              alt="Renceskieee logo"
+              width="34"
+              height="34"
+            /><strong>Renceskieee</strong></a
+          >
+          <p>Building thoughtful digital experiences.</p>
+          <p class="footer-copy">© Laurence Paul G. Quiniano, <span id="year">2026</span></p>
+        </div>
+        <nav class="footer-links" aria-label="Footer navigation">
+          <p class="footer-title">Pages</p>
+          <a href="./">Home</a>
+          <a href="projects.html">Projects</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+        <div class="footer-links">
+          <p class="footer-title">Connect</p>
+          <a href="mailto:quiniano.infotech@gmail.com"
+            ><img class="contact-icon" src="assets/icons/send.svg" alt="" width="16" height="16" />Email</a
+          >
+          <a href="https://web.facebook.com/xRency" target="_blank" rel="noopener"
+            ><img class="contact-icon" src="assets/icons/facebook.svg" alt="" width="16" height="16" />Facebook</a
+          >
+          <a href="https://www.instagram.com/renceskieee27/" target="_blank" rel="noopener"
+            ><img class="contact-icon" src="assets/icons/instagram.svg" alt="" width="16" height="16" />Instagram</a
+          >
+          <a href="https://www.youtube.com/@RencyQ" target="_blank" rel="noopener"
+            ><img class="contact-icon" src="assets/icons/youtube.svg" alt="" width="16" height="16" />YouTube</a
+          >
+        </div>
       </footer>
     </div>
     <script src="assets/js/main.js"></script>

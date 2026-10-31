@@ -3,6 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      // Apply the saved theme before the page paints, so dark mode doesn't flash light.
+      (function () {
+        var theme;
+        try {
+          theme = localStorage.getItem("rencyq-theme");
+        } catch (e) {}
+        document.documentElement.dataset.theme =
+          theme || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+      })();
+    </script>
     <meta name="google-site-verification" content="sPp_TaTsUMmbUsxikgZh6AxbG1l3m3sPKCjCnGWLB4o" />
     <title>Laurence Paul Quiniano | Web &amp; Mobile Developer – Philippines</title>
     <meta name="description" content="Portfolio of Laurence Paul G. Quiniano, a Magna Cum Laude BSIT graduate from EARIST building web and mobile apps with Flutter, React, Node.js and MySQL." />
@@ -175,6 +186,8 @@
               <div class="hero-actions">
                 <a class="button button-primary" href="projects.html"
                   >Explore my work <span>↗</span></a
+                ><a class="button button-secondary" href="about.html"
+                  >About me</a
                 >
               </div>
             </div>
@@ -209,9 +222,9 @@
             </div>
           </div>
           <div class="hero-footer">
-            <div class="proof-avatars" aria-label="Proof avatars">
-              <b>L</b><b>P</b><b>G</b><b>Q</b>
-            </div>
+            <p class="hero-stat">
+              <b>4</b> projects across web, mobile &amp; desktop
+            </p>
             <div class="skill-marquee">
               <span>Web Development</span><i>✦</i><span>Mobile Apps</span><i>✦</i
               ><span>Software Development</span>
@@ -243,16 +256,40 @@
         </section>
       </main>
       <footer class="site-footer">
-        <a class="brand" href="./" aria-label="Renceskieee home"
-          ><img
-            src="assets/images/icons/logo-96.webp"
-            alt="Renceskieee logo"
-            width="34"
-            height="34"
-          /><strong>Renceskieee</strong></a
-        >
-        <p>Building thoughtful digital experiences.</p>
-        <p>© <span id="year">2026</span> Laurence Paul G. Quiniano</p>
+        <div class="footer-brand">
+          <a class="brand" href="./" aria-label="Renceskieee home"
+            ><img
+              src="assets/images/icons/logo-96.webp"
+              alt="Renceskieee logo"
+              width="34"
+              height="34"
+            /><strong>Renceskieee</strong></a
+          >
+          <p>Building thoughtful digital experiences.</p>
+          <p class="footer-copy">© Laurence Paul G. Quiniano, <span id="year">2026</span></p>
+        </div>
+        <nav class="footer-links" aria-label="Footer navigation">
+          <p class="footer-title">Pages</p>
+          <a href="./">Home</a>
+          <a href="projects.html">Projects</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+        <div class="footer-links">
+          <p class="footer-title">Connect</p>
+          <a href="mailto:quiniano.infotech@gmail.com"
+            ><img class="contact-icon" src="assets/icons/send.svg" alt="" width="16" height="16" />Email</a
+          >
+          <a href="https://web.facebook.com/xRency" target="_blank" rel="noopener"
+            ><img class="contact-icon" src="assets/icons/facebook.svg" alt="" width="16" height="16" />Facebook</a
+          >
+          <a href="https://www.instagram.com/renceskieee27/" target="_blank" rel="noopener"
+            ><img class="contact-icon" src="assets/icons/instagram.svg" alt="" width="16" height="16" />Instagram</a
+          >
+          <a href="https://www.youtube.com/@RencyQ" target="_blank" rel="noopener"
+            ><img class="contact-icon" src="assets/icons/youtube.svg" alt="" width="16" height="16" />YouTube</a
+          >
+        </div>
       </footer>
     </div>
     <script src="assets/js/main.js"></script>

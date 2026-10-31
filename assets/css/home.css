@@ -31,30 +31,20 @@
 .button-primary {
   padding: 15px 22px;
 }
-.proof-avatars {
+.hero-actions {
+  flex-wrap: wrap;
+  gap: 14px 18px;
+}
+.hero-stat {
+  margin: 0;
   display: flex;
-  align-items: center;
+  align-items: baseline;
+  gap: 8px;
 }
-.proof-avatars b {
-  width: 31px;
-  height: 31px;
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  margin-right: -8px;
-  border: 2px solid #f7f7f4;
-  font-size: 9px;
-  background: #b8dded;
-  color: #000;
-}
-.proof-avatars b:nth-child(2) {
-  background: #d7f76c;
-}
-.proof-avatars b:nth-child(3) {
-  background: #ff835d;
-}
-.proof-avatars b:nth-child(4) {
-  background: #fff;
+.hero-stat b {
+  font-size: 20px;
+  line-height: 1;
+  color: var(--ink);
 }
 .hero-visual {
   height: 470px;

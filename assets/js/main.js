@@ -45,7 +45,10 @@ nav.addEventListener("click", (event) => {
   }
 });
 scrollTopButton.addEventListener("click", () =>
-  window.scrollTo({ top: 0, behavior: "smooth" }),
+  window.scrollTo({
+    top: 0,
+    behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
+  }),
 );
 window.addEventListener(
   "scroll",

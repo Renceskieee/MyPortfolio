@@ -272,16 +272,62 @@ html[data-theme="dark"] .theme-toggle .moon-icon {
 }
 .site-footer {
   border-top: 1px solid var(--line);
-  padding: 28px clamp(20px, 5vw, 80px);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  padding: 46px clamp(20px, 5vw, 80px) 28px;
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1fr;
+  gap: 30px 40px;
+  align-items: start;
   color: var(--muted);
-  font-size: 11px;
+  font-size: 12px;
   transition: border-color 0.3s;
 }
 .site-footer p {
   margin: 0;
+}
+.footer-brand p {
+  margin-top: 12px;
+  max-width: 260px;
+}
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 9px;
+}
+.footer-title {
+  font-size: 10px;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 4px !important;
+}
+.footer-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: color 0.2s ease;
+}
+.footer-links a:hover,
+.footer-links a:focus-visible {
+  color: var(--orange);
+}
+.footer-links .contact-icon {
+  width: 14px;
+  height: 14px;
+}
+.footer-brand .footer-copy {
+  margin-top: 6px;
+  font-size: 11px;
+}
+.button-secondary {
+  padding: 18px 22px;
+  background: transparent;
+  color: var(--ink);
+  box-shadow: inset 0 0 0 1.5px var(--ink);
+}
+.button-secondary:hover {
+  box-shadow: none;
 }
 .scroll-top {
   position: fixed;
@@ -432,11 +478,39 @@ html[data-theme="dark"] .project-sk .project-visual {
     bottom: -2px;
   }
   .site-footer {
-    flex-direction: column;
-    gap: 12px;
-    text-align: center;
+    grid-template-columns: 1fr 1fr;
+  }
+  .footer-brand {
+    grid-column: 1 / -1;
   }
   .page-section {
     min-height: calc(100vh - 190px);
+  }
+}
+.error-state p {
+  max-width: 440px;
+  margin: 20px auto 32px;
+  color: var(--muted);
+}
+.error-state .eyebrow {
+  margin: 0 auto 14px;
+}
+.error-state h1 {
+  font-size: clamp(36px, 6vw, 70px);
+  line-height: 1.08;
+  letter-spacing: -0.055em;
+  margin: 0;
+}
+/* Respect the "reduce motion" accessibility setting across the whole site. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }
