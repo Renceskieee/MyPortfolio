@@ -23,7 +23,7 @@
 .email-link:focus-visible,
 .copy-button:focus-visible,
 .social-links a:focus-visible {
-  outline: 2px solid var(--orange);
+  outline: 2px solid var(--accent);
   outline-offset: 4px;
 }
 .contact-info {
@@ -75,7 +75,7 @@
     transform 0.2s ease;
 }
 .copy-button:hover {
-  color: var(--orange);
+  color: var(--accent);
   transform: scale(1.08);
 }
 .copy-button:active {
@@ -115,7 +115,7 @@
     transform 0.2s ease;
 }
 .social-links a:hover {
-  color: var(--orange);
+  color: var(--accent);
   transform: translateY(-2px);
 }
 .social-links .contact-icon {
@@ -148,7 +148,7 @@
 }
 .contact-form input:focus,
 .contact-form textarea:focus {
-  border-color: var(--orange);
+  border-color: var(--accent);
 }
 .contact-form textarea {
   resize: vertical;

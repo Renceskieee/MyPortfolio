@@ -169,7 +169,7 @@
   text-align: right;
 }
 .skill-marquee i {
-  color: var(--orange);
+  color: var(--accent);
   font-style: normal;
 }
 .skills-preview {
@@ -197,7 +197,7 @@
   border-bottom: 1px solid var(--line);
 }
 .skill-list span {
-  color: var(--orange);
+  color: var(--accent);
   font-size: 11px;
 }
 .skill-list h3 {

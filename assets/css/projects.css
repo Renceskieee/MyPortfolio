@@ -73,7 +73,7 @@
   letter-spacing: 0.1em;
 }
 .project-label span {
-  color: var(--orange);
+  color: var(--accent);
   font-weight: 700;
 }
 .project-label p {
@@ -205,9 +205,9 @@
 }
 .image-viewer-close:hover,
 .image-viewer-control:hover {
-  border-color: var(--orange);
-  background: var(--orange);
-  color: #172127;
+  border-color: var(--accent);
+  background: var(--accent);
+  color: var(--on-accent);
   transform: scale(1.06);
 }
 .image-viewer-close:focus-visible,

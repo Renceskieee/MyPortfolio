@@ -55,7 +55,7 @@
 }
 .timeline article span {
   font-size: 11px;
-  color: var(--orange);
+  color: var(--accent);
   padding-top: 21px;
 }
 .timeline h3,

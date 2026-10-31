@@ -4,7 +4,8 @@
   --paper: #f7f7f4;
   --white: #fff;
   --lime: #d7f76c;
-  --orange: #ff835d;
+  --accent: #2f7d55;
+  --on-accent: #f7f7f4;
   --blue: #b8dded;
   --line: #dce2df;
   --header: rgba(247, 247, 244, 0.9);
@@ -18,7 +19,8 @@ html[data-theme="dark"] {
   --paper: #111916;
   --white: #19241f;
   --lime: #d7f76c;
-  --orange: #ff9b79;
+  --accent: #8ad6a2;
+  --on-accent: #172127;
   --blue: #31515b;
   --line: #31423b;
   --header: rgba(17, 25, 22, 0.9);
@@ -114,7 +116,7 @@ textarea {
   width: 100%;
   height: 2px;
   border-radius: 2px;
-  background: var(--orange);
+  background: var(--accent);
   transform: scaleX(0);
   transform-origin: right;
   transition: transform 0.3s ease;
@@ -150,7 +152,7 @@ textarea {
 }
 .theme-toggle:hover {
   transform: rotate(12deg) scale(1.04);
-  border-color: var(--orange);
+  border-color: var(--accent);
   box-shadow: 0 5px 14px rgba(20, 35, 38, 0.12);
 }
 .theme-toggle:active {
@@ -158,7 +160,7 @@ textarea {
 }
 .theme-toggle:focus-visible,
 .menu-toggle:focus-visible {
-  outline: 2px solid var(--orange);
+  outline: 2px solid var(--accent);
   outline-offset: 3px;
 }
 .theme-toggle span {
@@ -221,8 +223,8 @@ html[data-theme="dark"] .theme-toggle .moon-icon {
 .header-cta:hover,
 .button:hover {
   transform: translateY(-3px);
-  background: var(--orange);
-  color: #172127;
+  background: var(--accent);
+  color: var(--on-accent);
 }
 .menu-toggle {
   display: none;
@@ -244,7 +246,7 @@ html[data-theme="dark"] .theme-toggle .moon-icon {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: var(--orange);
+  background: var(--accent);
   margin-right: 7px;
 }
 .page-heading h1,
@@ -310,7 +312,7 @@ html[data-theme="dark"] .theme-toggle .moon-icon {
 }
 .footer-links a:hover,
 .footer-links a:focus-visible {
-  color: var(--orange);
+  color: var(--accent);
 }
 .footer-links .contact-icon {
   width: 14px;
