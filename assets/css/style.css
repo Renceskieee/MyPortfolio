@@ -231,12 +231,6 @@ html[data-theme="dark"] .theme-toggle .moon-icon {
   padding: clamp(50px, 8vw, 120px) clamp(20px, 8vw, 130px);
   min-height: calc(100vh - 183px);
 }
-#page-content {
-  transition: opacity 0.25s;
-}
-.is-loading {
-  opacity: 0.4;
-}
 .eyebrow {
   font-size: 11px;
   letter-spacing: 0.13em;

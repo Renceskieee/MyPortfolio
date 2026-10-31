@@ -1,20 +1,20 @@
-const content = document.querySelector("#page-content");
 const nav = document.querySelector(".site-nav");
 const menu = document.querySelector(".menu-toggle");
 const themeToggle = document.querySelector(".theme-toggle");
-const routes = ["_home", "_projects", "_about", "_contacts"];
-const routeToPage = {
-  _home: "home",
-  _projects: "projects",
-  _about: "about",
-  _contacts: "contacts",
+
+// Old links used hash routes (e.g. main.html#_projects). Send them to the real pages.
+const legacyRoutes = {
+  _home: "./",
+  home: "./",
+  _projects: "projects.html",
+  projects: "projects.html",
+  _about: "about.html",
+  about: "about.html",
+  _contacts: "contact.html",
+  contacts: "contact.html",
 };
-const legacyRouteMap = {
-  home: "_home",
-  projects: "_projects",
-  about: "_about",
-  contacts: "_contacts",
-};
+const legacyTarget = legacyRoutes[location.hash.slice(1)];
+if (legacyTarget) location.replace(legacyTarget);
 
 function ensureScrollTopButton() {
   const existingButton = document.querySelector(".scroll-top");
@@ -30,43 +30,6 @@ function ensureScrollTopButton() {
 }
 
 const scrollTopButton = ensureScrollTopButton();
-
-async function loadPage() {
-  const currentHash = location.hash.slice(1);
-  const route = routes.includes(currentHash)
-    ? currentHash
-    : legacyRouteMap[currentHash] ?? "_home";
-  const page = routeToPage[route] ?? "home";
-  if (location.hash !== `#${route}`) history.replaceState(null, "", `#${route}`);
-  content.classList.add("is-loading");
-  try {
-    const response = await fetch(`pages/${page}.html`, { cache: "no-store" });
-    if (!response.ok) throw new Error("Page not found");
-    const existingViewer = document.querySelector(".image-viewer");
-    existingViewer?.cleanup?.();
-    existingViewer?.remove();
-    document.body.classList.remove("viewer-open");
-    content.innerHTML = await response.text();
-    document.title = "Renceskieee";
-    document
-      .querySelectorAll("[data-page]")
-      .forEach((link) =>
-        link.classList.toggle("active", link.dataset.page === route),
-      );
-    window.scrollTo({ top: 0, behavior: "smooth" });
-    initializePage(page);
-  } catch {
-    content.innerHTML =
-      '<section class="error-state"><h1>Something went wrong.</h1><a class="button button-primary" href="#_home">Back home</a></section>';
-  } finally {
-    content.classList.remove("is-loading");
-  }
-}
-
-function initializePage(page) {
-  const initializer = window[`init${page[0].toUpperCase() + page.slice(1)}`];
-  if (initializer) initializer();
-}
 
 menu.addEventListener("click", () => {
   const open = menu.getAttribute("aria-expanded") === "true";
@@ -89,11 +52,17 @@ window.addEventListener(
   () => scrollTopButton.classList.toggle("visible", scrollY > 300),
   { passive: true },
 );
-window.addEventListener("hashchange", loadPage);
 document.querySelector("#year").textContent = new Date().getFullYear();
-const savedTheme = localStorage.getItem("rencyq-theme");
+
+function readSavedTheme() {
+  try {
+    return localStorage.getItem("rencyq-theme");
+  } catch {
+    return null;
+  }
+}
 const preferredTheme =
-  savedTheme ||
+  readSavedTheme() ||
   (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
 function setTheme(theme) {
   document.documentElement.dataset.theme = theme;
@@ -108,6 +77,14 @@ themeToggle.addEventListener("click", () => {
   const nextTheme =
     document.documentElement.dataset.theme === "dark" ? "light" : "dark";
   setTheme(nextTheme);
-  localStorage.setItem("rencyq-theme", nextTheme);
+  try {
+    localStorage.setItem("rencyq-theme", nextTheme);
+  } catch {}
 });
-loadPage();
+
+// Page scripts load after this file, so run their setup once the document is ready.
+document.addEventListener("DOMContentLoaded", () => {
+  const page = document.body.dataset.page;
+  const initializer = page && window[`init${page[0].toUpperCase() + page.slice(1)}`];
+  if (initializer) initializer();
+});

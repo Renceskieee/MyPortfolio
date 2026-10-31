@@ -4,7 +4,7 @@ window.initProjects = () => {
 			selector: ".project-aqua .project-link",
 			name: "AquaLex",
 			images: Array.from({ length: 6 }, (_, index) => ({
-				src: `assets/images/projects/AquaLex/${index + 1}.jpg`,
+				src: `assets/images/projects/AquaLex/${index + 1}.webp`,
 				alt: `AquaLex application screen ${index + 1} of 6`,
 			})),
 		},
@@ -12,7 +12,7 @@ window.initProjects = () => {
 			selector: ".project-hris .project-link",
 			name: "EARIST HRIS",
 			images: [8, 9, 10, 11].map((number, index) => ({
-				src: `assets/images/projects/EARISTHRIS/${number}.jpg`,
+				src: `assets/images/projects/EARISTHRIS/${number}.webp`,
 				alt: `EARIST HRIS application screen ${index + 1} of 4`,
 			})),
 		},

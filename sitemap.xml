@@ -1,27 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 	<url>
-		<loc>https://renceskieee.dev/main.html#_home</loc>
-		<lastmod>2026-08-05</lastmod>
-		<changefreq>weekly</changefreq>
-		<priority>1.0</priority>
+		<loc>https://renceskieee.dev/</loc>
+		<lastmod>2026-10-31</lastmod>
 	</url>
 	<url>
-		<loc>https://renceskieee.dev/main.html#_projects</loc>
-		<lastmod>2026-08-05</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.8</priority>
+		<loc>https://renceskieee.dev/projects.html</loc>
+		<lastmod>2026-10-31</lastmod>
 	</url>
 	<url>
-		<loc>https://renceskieee.dev/main.html#_about</loc>
-		<lastmod>2026-08-05</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.6</priority>
+		<loc>https://renceskieee.dev/about.html</loc>
+		<lastmod>2026-10-31</lastmod>
 	</url>
 	<url>
-		<loc>https://renceskieee.dev/main.html#_contacts</loc>
-		<lastmod>2026-08-05</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.6</priority>
+		<loc>https://renceskieee.dev/contact.html</loc>
+		<lastmod>2026-10-31</lastmod>
 	</url>
 </urlset>
